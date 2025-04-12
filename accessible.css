@@ -1,0 +1,126 @@
+/* Accessibility enhancements for elderly users */
+
+/* Larger base font size */
+html {
+    font-size: 18px;
+}
+
+/* Increase default text size */
+body {
+    font-size: 1.1rem;
+}
+
+/* Larger headings */
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* Enhanced form elements */
+label {
+    font-size: 1.2rem;
+}
+
+input, select, textarea {
+    font-size: 1.2rem;
+    padding: 15px;
+    height: auto;
+}
+
+/* Larger buttons with more padding */
+.btn {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+}
+
+.btn-large {
+    padding: 18px 35px;
+    font-size: 1.3rem;
+}
+
+/* Increase contrast */
+body {
+    color: #222;
+}
+
+a {
+    color: #0056b3;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* More space between elements */
+.form-group {
+    margin-bottom: 25px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Focus indicators */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid #4285f4;
+    outline-offset: 2px;
+}
+
+/* Better file list for easier reading */
+.file-item {
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.file-name {
+    font-size: 1.3rem;
+}
+
+/* Icons and visual cues */
+.file-item::before {
+    content: "📄";
+    font-size: 1.5rem;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+/* Print-friendly styles */
+@media print {
+    body {
+        font-size: 14pt;
+        line-height: 1.5;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    button, .no-print {
+        display: none;
+    }
+    
+    .instruction-box {
+        border: 1px solid #ccc;
+        padding: 10pt;
+    }
+}

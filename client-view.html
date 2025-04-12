@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Files - Easy File Access</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accessible.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Files</h1>
+            <p class="subtitle">Here are all your documents</p>
+        </header>
+
+        <main>
+            <div class="welcome-message">
+                <h2>Welcome, <span id="client-name">Friend</span>!</h2>
+                <p>Below you'll find all the files that have been shared with you.</p>
+                <p>Click on any file name to view it.</p>
+            </div>
+
+            <div class="instruction-box">
+                <h3>How to use this page:</h3>
+                <ol>
+                    <li>Look at the list of files below</li>
+                    <li>Click on any file name to open it</li>
+                    <li>When you're done, you can click the "Sign Out" button at the bottom of the page</li>
+                </ol>
+                <p><strong>Need help?</strong> Call us at <span class="highlight">[Your Phone Number]</span></p>
+            </div>
+
+            <div class="files-container">
+                <h2>Your Files</h2>
+                
+                <!-- Loading indicator -->
+                <div id="loading" class="loading-indicator">
+                    <p>Loading your files...</p>
+                </div>
+                
+                <!-- Will be populated with files -->
+                <ul id="file-list" class="file-list">
+                    <!-- Files will be inserted here by JavaScript -->
+                </ul>
+                
+                <!-- Empty state message -->
+                <div id="empty-files" class="empty-message hidden">
+                    <h3>No Files Yet</h3>
+                    <p>You don't have any files shared with you yet.</p>
+                    <p>If you believe this is a mistake, please contact us.</p>
+                </div>
+            </div>
+
+            <div class="file-viewer hidden" id="file-viewer">
+                <div class="file-viewer-header">
+                    <h3 id="current-file-name">File Name</h3>
+                    <button class="btn" id="close-viewer">Close</button>
+                </div>
+                <div class="file-content" id="file-content">
+                    <!-- File content will be shown here -->
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="sign-out" class="btn">Sign Out</button>
+                <button id="print-page" class="btn">Print This Page</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/client.js"></script>
+    <script>
+        // Print functionality
+        document.getElementById('print-page').addEventListener('click', function() {
+            window.print();
+        });
+
+        // Sign out functionality
+        document.getElementById('sign-out').addEventListener('click', function() {
+            signOut();
+        });
+    </script>
+</body>
+</html>

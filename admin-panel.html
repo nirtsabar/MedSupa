@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - File Sharing System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admin Panel</h1>
+            <p class="subtitle">Manage your clients and files</p>
+        </header>
+
+        <main>
+            <div class="admin-controls">
+                <button id="create-client" class="btn btn-primary">Add New Client</button>
+                <button id="sign-out" class="btn">Sign Out</button>
+            </div>
+
+            <div class="admin-panel">
+                <h2>Your Clients</h2>
+                <div id="client-list" class="client-list">
+                    <!-- Client list will be populated by JavaScript -->
+                    <div class="loading-indicator">Loading clients...</div>
+                </div>
+            </div>
+
+            <!-- Add Client Modal -->
+            <div id="add-client-modal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add New Client</h3>
+                        <span class="close-modal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form id="add-client-form">
+                            <div class="form-group">
+                                <label for="client-name">Client Name:</label>
+                                <input type="text" id="client-name" name="client-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="client-email">Client Email:</label>
+                                <input type="email" id="client-email" name="client-email" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Client</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add File Modal -->
+            <div id="add-file-modal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add New File for <span id="file-client-name"></span></h3>
+                        <span class="close-modal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form id="add-file-form">
+                            <input type="hidden" id="file-client-id" name="file-client-id">
+                            <div class="form-group">
+                                <label for="file-name">File Name:</label>
+                                <input type="text" id="file-name" name="file-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="file-content">JSON Content:</label>
+                                <textarea id="file-content" name="file-content" rows="10" required></textarea>
+                                <p class="help-text">Enter valid JSON data here. Example: {"key1": "value1", "key2": "value2"}</p>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add File</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View/Edit File Modal -->
+            <div id="edit-file-modal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Edit File: <span id="edit-file-name"></span></h3>
+                        <span class="close-modal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-file-form">
+                            <input type="hidden" id="edit-file-id" name="edit-file-id">
+                            <div class="form-group">
+                                <label for="edit-file-name-input">File Name:</label>
+                                <input type="text" id="edit-file-name-input" name="edit-file-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-file-content">JSON Content:</label>
+                                <textarea id="edit-file-content" name="edit-file-content" rows="10" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <button type="button" id="delete-file" class="btn btn-danger">Delete File</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Sign out functionality
+        document.getElementById('sign-out').addEventListener('click', function() {
+            signOut();
+        });
+    </script>
+</body>
+</html>

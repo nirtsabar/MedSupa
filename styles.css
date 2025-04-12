@@ -1,0 +1,429 @@
+/* Base styles */
+:root {
+    --primary-color: #4285f4;
+    --secondary-color: #34a853;
+    --text-color: #333333;
+    --background-color: #ffffff;
+    --light-gray: #f5f5f5;
+    --border-color: #e0e0e0;
+    --success-color: #34a853;
+    --error-color: #ea4335;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Main content */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Login container */
+.login-container {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.instruction-box {
+    background-color: #e8f0fe;
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #3367d6;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+/* Message boxes */
+.message {
+    padding: 20px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid var(--success-color);
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid var(--error-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Help section */
+.help-section {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* File list */
+.file-list {
+    list-style: none;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.file-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.file-date {
+    color: #666;
+}
+
+/* Footer */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #666;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Admin panel specific styles */
+.admin-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.admin-panel {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.client-list {
+    margin-bottom: 30px;
+}
+
+.client-item {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid var(--secondary-color);
+}
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.close-modal {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+/* Client list styles */
+.client-item {
+    background-color: white;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.client-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.client-info h3 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.client-email {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.client-date {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.client-files {
+    padding: 15px;
+}
+
+.client-files h4 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.files-list {
+    list-style: none;
+    padding: 0;
+}
+
+.files-loading {
+    color: #999;
+    padding: 10px 0;
+    font-style: italic;
+}
+
+.empty-files {
+    color: #999;
+    padding: 10px 0;
+    font-style: italic;
+}
+
+.file-actions {
+    display: flex;
+    gap: 5px;
+}
+
+/* JSON formatting in the client view */
+.json-content {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.json-row {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.json-key {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.json-value {
+    margin-left: 20px;
+}
+
+.json-details {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+.json-nested-row {
+    margin-bottom: 8px;
+    padding-left: 15px;
+    border-left: 2px solid #ddd;
+}
+
+.json-nested-key {
+    font-weight: bold;
+    color: #444;
+}
+
+.json-nested-value {
+    margin-left: 10px;
+}
+
+.json-array-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.json-array-index {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.help-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .client-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .client-actions {
+        margin-top: 10px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 80vh;
+    }
+}
+
+/* Add this to support small screens */
+.hidden {
+    display: none !important;
+}

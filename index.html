@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy File Access - Welcome</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accessible.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Easy File Access</h1>
+            <p class="subtitle">A simple way to view your files</p>
+        </header>
+
+        <main>
+            <div class="login-container">
+                <h2>Sign In to View Your Files</h2>
+                
+                <div class="instruction-box">
+                    <p>Please enter the email address where you receive your files:</p>
+                </div>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Your Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        Send Me a Sign-In Link
+                    </button>
+                </form>
+
+                <div id="success-message" class="message success-message hidden">
+                    <h3>Email Sent!</h3>
+                    <p>Please check your email for a link to access your files.</p>
+                    <p>The email might take a minute to arrive. If you don't see it, please check your spam folder.</p>
+                </div>
+
+                <div id="error-message" class="message error-message hidden">
+                    <h3>Something went wrong</h3>
+                    <p>We couldn't send the email. Please try again or contact support.</p>
+                </div>
+            </div>
+
+            <div class="help-section">
+                <h3>Need Help?</h3>
+                <p>If you need assistance, please call us at <span class="highlight">[Your Phone Number]</span></p>
+                <p>Office hours: Monday-Friday, 9am-5pm</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Simple form handling
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                try {
+                    // Show loading state
+                    document.querySelector('button[type="submit"]').textContent = 'Sending...';
+                    
+                    // Call magic link function (defined in auth.js)
+                    const { error } = await sendMagicLink(email);
+                    
+                    if (error) {
+                        // Show error message
+                        document.getElementById('error-message').classList.remove('hidden');
+                        document.getElementById('success-message').classList.add('hidden');
+                        console.error('Error sending magic link:', error);
+                    } else {
+                        // Show success message
+                        document.getElementById('success-message').classList.remove('hidden');
+                        document.getElementById('error-message').classList.add('hidden');
+                        document.getElementById('login-form').reset();
+                    }
+                } catch (err) {
+                    // Show error message
+                    document.getElementById('error-message').classList.remove('hidden');
+                    document.getElementById('success-message').classList.add('hidden');
+                    console.error('Unexpected error:', err);
+                } finally {
+                    // Reset button text
+                    document.querySelector('button[type="submit"]').textContent = 'Send Me a Sign-In Link';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

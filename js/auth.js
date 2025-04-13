@@ -1,7 +1,8 @@
 // Initialize Supabase client
 // Replace with your actual Supabase URL and API key after setting up your project
-const SUPABASE_URL = 'MY_SUPABASE_URL'; // Replace with your Supabase URL
-const SUPABASE_KEY = 'MY_SUPABASE_KEY'; // Replace with your Supabase API key
+//const SUPABASE_URL = 'MY_SUPABASE_URL'; // Replace with your Supabase URL
+//const SUPABASE_KEY = 'MY_SUPABASE_KEY'; // Replace with your Supabase API key
+// see (gitignored) config.js for the above variables
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Check if user is already authenticated

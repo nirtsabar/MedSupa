@@ -1,7 +1,7 @@
 // Initialize Supabase client
 // Replace with your actual Supabase URL and API key after setting up your project
-const SUPABASE_URL = 'https://dbycsbovksokiwkwtopf.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRieWNzYm92a3Nva2l3a3d0b3BmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ0ODAwNzksImV4cCI6MjA2MDA1NjA3OX0.2lhXpCHjYdl75HXQHeqonF5Vm74ud0l8eim5_nW8D4g';
+const SUPABASE_URL = 'MY_SUPABASE_URL'; // Replace with your Supabase URL
+const SUPABASE_KEY = 'MY_SUPABASE_KEY'; // Replace with your Supabase API key
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Check if user is already authenticated
